@@ -54,7 +54,7 @@ public static double furthest (Member [] memberList) {
 
 double furthest = memberList[0].distance;
 for(int i = 0; i < 20; i ++){
-if(memberList[i].distance < furthest){
+if(memberList[i].distance > furthest){
 furthest = memberList[i].distance; 
 }
 } 
@@ -62,6 +62,7 @@ System.out.println(furthest + " is the furthest distance walked.");
 
 return furthest;
 
+ }
  }
 
 public static void file (Member [] memberList, furthest) throws IOException{
