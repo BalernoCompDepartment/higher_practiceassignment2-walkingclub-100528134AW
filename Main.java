@@ -66,8 +66,10 @@ return furthest;
 
 public static void file (Member [] memberList, furthest) throws IOException{
 
-String content = "The prize winning members are.";
+String content1 = "The prize winning members are.";
 int prizeNumber = furthest * 0.7;
+String content2 = "The number of whole marathons walked by each member is.";
+double marathon = 0;
 
 String fileName = "results.txt";
 
@@ -80,7 +82,7 @@ if(!writeFile.exists()) {
 FileWriter fw = new FileWriter(writeFile.getAbsoluteFile());
 BufferedWriter bw = new BufferedWriter(fw);
 
-bw.write(content);
+bw.write(content1);
 bw.write("\n");
 for(int loop = 0; loop < 20; loop ++){
  if (memberList[loop].distance > prizeNumber){
@@ -88,6 +90,15 @@ for(int loop = 0; loop < 20; loop ++){
  bw.write(memberList[loop].surname + "\n"); 
 }
 }
+bw.write(content2);
+bw.write("\n");
+for(int index = 0; index < 20; index ++){
+  marathon = Math.round(memberList[index].distance/26.22);
+  bw.write(memberList[index].forename + "\n");
+  bw.write(memberList[index].surname + "\n");
+  bw.write(marathon + "\n");
+}
+
 bw.newLine();
 
 bw.close();
